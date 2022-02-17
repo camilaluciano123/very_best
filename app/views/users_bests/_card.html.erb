@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>Dishes</dt>
       <!-- Display dishes_id start -->
-      <dd><%= users_best.dishes_id %></dd>
+      <dd>
+        <% if @users_best.dishes.present? %>
+          <%= link_to users_best.dishes, users_best.dishes %>
+        <% end %>
+      </dd>
       <!-- Display dishes_id end -->
 
       <dt>Venue</dt>
       <!-- Display venue_id start -->
-      <dd><%= users_best.venue_id %></dd>
+      <dd>
+        <% if @users_best.venue.present? %>
+          <%= link_to users_best.venue, users_best.venue %>
+        <% end %>
+      </dd>
       <!-- Display venue_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= users_best.user_id %></dd>
+      <dd>
+        <% if @users_best.user.present? %>
+          <%= link_to users_best.user, users_best.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>
