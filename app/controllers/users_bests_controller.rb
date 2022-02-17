@@ -3,7 +3,7 @@ class UsersBestsController < ApplicationController
 
   # GET /users_bests
   def index
-    @users_bests = UsersBest.all
+    @users_bests = UsersBest.page(params[:page]).per(10)
   end
 
   # GET /users_bests/1
