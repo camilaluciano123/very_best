@@ -1,6 +1,8 @@
 class UsersBest < ApplicationRecord
   # Direct associations
 
+  belongs_to :venue
+
   belongs_to :dishes,
              :class_name => "Dish"
 
