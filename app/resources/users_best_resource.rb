@@ -8,6 +8,9 @@ class UsersBestResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :dishes,
+             resource: DishResource
+
   belongs_to :user
 
   # Indirect associations
