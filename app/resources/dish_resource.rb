@@ -13,5 +13,4 @@ class DishResource < ApplicationResource
   belongs_to :cuisine
 
   # Indirect associations
-
 end

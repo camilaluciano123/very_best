@@ -4,7 +4,7 @@ class UsersBest < ApplicationRecord
   belongs_to :venue
 
   belongs_to :dishes,
-             :class_name => "Dish"
+             class_name: "Dish"
 
   belongs_to :user
 
@@ -17,5 +17,4 @@ class UsersBest < ApplicationRecord
   def to_s
     dishes.to_s
   end
-
 end

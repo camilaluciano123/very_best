@@ -2,7 +2,7 @@ class Venue < ApplicationRecord
   # Direct associations
 
   has_many   :users_bests,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Venue < ApplicationRecord
   def to_s
     venue_name
   end
-
 end

@@ -13,7 +13,7 @@ class Api::V1::UsersBestsController < Api::V1::GraphitiController
     users_best = UsersBestResource.build(params)
 
     if users_best.save
-      render jsonapi: users_best, status: 201
+      render jsonapi: users_best, status: :created
     else
       render jsonapi_errors: users_best
     end
@@ -33,7 +33,7 @@ class Api::V1::UsersBestsController < Api::V1::GraphitiController
     users_best = UsersBestResource.find(params)
 
     if users_best.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: users_best
     end
