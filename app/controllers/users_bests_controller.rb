@@ -42,8 +42,14 @@ class UsersBestsController < ApplicationController
   # DELETE /users_bests/1
   def destroy
     @users_best.destroy
-    redirect_to users_bests_url, notice: 'Users best was successfully destroyed.'
+    message = "UsersBest was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to users_bests_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
