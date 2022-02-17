@@ -1,0 +1,83 @@
+<% was_validated = venue.errors.any? %>
+
+<%= form_with(model: venue, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for venue_name start -->
+  <div class="form-group">
+    <% venue_name_class = "form-control" %>
+    <% venue_name_was_invalid = venue.errors.include?(:venue_name) %>
+
+    <% if was_validated %>
+      <% if venue_name_was_invalid %>
+        <% venue_name_class << " is-invalid" %>
+      <% else %>
+        <% venue_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :venue_name %>
+    <!-- Input for venue_name start -->
+    <%= f.text_field :venue_name, class: venue_name_class, placeholder: "Enter venue name" %>
+    <!-- Input for venue_name end -->
+    <% if venue_name_was_invalid %>
+      <% venue.errors.full_messages_for(:venue_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for venue_name end -->
+  <!-- Label and input for address start -->
+  <div class="form-group">
+    <% address_class = "form-control" %>
+    <% address_was_invalid = venue.errors.include?(:address) %>
+
+    <% if was_validated %>
+      <% if address_was_invalid %>
+        <% address_class << " is-invalid" %>
+      <% else %>
+        <% address_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :address %>
+    <!-- Input for address start -->
+    <%= f.text_field :address, class: address_class, placeholder: "Enter address" %>
+    <!-- Input for address end -->
+    <% if address_was_invalid %>
+      <% venue.errors.full_messages_for(:address).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for address end -->
+  <!-- Label and input for neighborhood start -->
+  <div class="form-group">
+    <% neighborhood_class = "form-control" %>
+    <% neighborhood_was_invalid = venue.errors.include?(:neighborhood) %>
+
+    <% if was_validated %>
+      <% if neighborhood_was_invalid %>
+        <% neighborhood_class << " is-invalid" %>
+      <% else %>
+        <% neighborhood_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :neighborhood %>
+    <!-- Input for neighborhood start -->
+    <%= f.text_field :neighborhood, class: neighborhood_class, placeholder: "Enter neighborhood" %>
+    <!-- Input for neighborhood end -->
+    <% if neighborhood_was_invalid %>
+      <% venue.errors.full_messages_for(:neighborhood).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for neighborhood end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
